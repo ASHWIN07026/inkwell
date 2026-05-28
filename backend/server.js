@@ -13,7 +13,14 @@ const userRoutes = require('./routes/users');
 const app = express();
 
 app.use(cors({
-  origin: process.env.CLIENT_URL || 'http://localhost:3000',
+  origin: (origin, callback) => {
+    const allowed = (process.env.CLIENT_URL || 'http://localhost:3000').replace(/\/$/, '');
+    if (!origin || origin.replace(/\/$/, '') === allowed) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true,
 }));
 app.use(express.json());
