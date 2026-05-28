@@ -1,6 +1,8 @@
 # ✦ Inkwell — Full-Stack Blog Platform
 
-A production-grade blogging platform built with **React**, **Node.js/Express**, and **MongoDB**.
+A production-grade blogging platform built with **React**, **Node.js/Express**, and **Supabase (PostgreSQL)**.
+
+🌐 **Live Demo:** https://inkwell-h42a.vercel.app
 
 ---
 
@@ -10,6 +12,8 @@ A production-grade blogging platform built with **React**, **Node.js/Express**, 
 inkwell/
 ├── backend/               # Express REST API
 │   ├── config/
+│   │   ├── supabase.js    # Supabase client
+│   │   ├── schema.sql     # Database schema
 │   │   └── seed.js        # Database seeder
 │   ├── controllers/       # Route handlers
 │   │   ├── authController.js
@@ -18,10 +22,6 @@ inkwell/
 │   │   └── userController.js
 │   ├── middleware/
 │   │   └── auth.js        # JWT middleware
-│   ├── models/            # Mongoose schemas
-│   │   ├── User.js
-│   │   ├── Post.js
-│   │   └── Comment.js
 │   ├── routes/            # API routes
 │   │   ├── auth.js
 │   │   ├── posts.js
@@ -36,10 +36,10 @@ inkwell/
     │   └── index.html
     └── src/
         ├── components/
-        │   ├── comments/  CommentSection
-        │   ├── layout/    Navbar
-        │   ├── posts/     PostCard
-        │   └── ui/        Button, Input, Avatar, CategoryBadge
+        │   ├── comments/  # CommentSection
+        │   ├── layout/    # Navbar
+        │   ├── posts/     # PostCard
+        │   └── ui/        # Button, Input, Avatar, CategoryBadge
         ├── context/
         │   └── AuthContext.js
         ├── pages/
@@ -64,16 +64,28 @@ inkwell/
 
 ### Prerequisites
 - Node.js 18+
-- MongoDB (local or [MongoDB Atlas](https://www.mongodb.com/atlas))
+- A free [Supabase](https://supabase.com) account
 
 ### 1. Clone & Install
 
 ```bash
-# Install all dependencies
-npm run install:all
+git clone https://github.com/ASHWIN07026/inkwell.git
+cd inkwell
+
+# Install backend dependencies
+cd backend && npm install
+
+# Install frontend dependencies
+cd ../frontend && npm install
 ```
 
-### 2. Configure Backend
+### 2. Set Up Supabase
+
+1. Go to [supabase.com](https://supabase.com) and create a new project
+2. Go to **SQL Editor** and run the contents of `backend/config/schema.sql`
+3. Go to **Settings → API** and copy your **Project URL** and **service_role** key
+
+### 3. Configure Backend
 
 ```bash
 cd backend
@@ -83,25 +95,39 @@ cp .env.example .env
 Edit `backend/.env`:
 ```
 PORT=5000
-MONGODB_URI=mongodb://localhost:27017/inkwell
+SUPABASE_URL=https://your-project-id.supabase.co
+SUPABASE_SERVICE_KEY=your-service-role-key
 JWT_SECRET=your_very_long_random_secret_key
 JWT_EXPIRES_IN=7d
 NODE_ENV=development
+CLIENT_URL=http://localhost:3000
 ```
 
-### 3. Seed the Database (optional)
+### 4. Seed the Database (optional)
 
 ```bash
-npm run seed
+cd backend
+node config/seed.js
 ```
 
-Creates sample users and posts. Demo login: `demo@inkwell.com` / `demo1234`
+Creates 4 sample users and 10 posts across all categories.
 
-### 4. Start Development Servers
+Demo login credentials:
+- `demo@inkwell.com` / `demo1234`
+- `sarah@inkwell.com` / `password123`
+- `maya@inkwell.com` / `password123`
+- `james@inkwell.com` / `pass5678`
+
+### 5. Start Development Servers
 
 ```bash
-# Run both frontend and backend simultaneously
-npm run dev
+# Terminal 1 — Backend
+cd backend
+node server.js
+
+# Terminal 2 — Frontend
+cd frontend
+npm start
 ```
 
 - **Frontend:** http://localhost:3000
@@ -156,7 +182,7 @@ Protected routes require `Authorization: Bearer <token>` header.
 - **Comments** — add, delete, real-time count
 - **Likes** — toggle likes on posts and comments (per-user tracking)
 - **Categories** — filter posts by Technology, Design, Science, Lifestyle, Culture, Business, Health
-- **Full-text Search** — MongoDB text index on title, content, tags
+- **Full-text Search** — search by title and content
 - **Pagination** — server-side pagination for the post feed
 - **Markdown Support** — post content rendered with headings, blockquotes, lists, bold/italic
 - **Profile Pages** — view any user's published stories and stats
@@ -172,29 +198,35 @@ Protected routes require `Authorization: Bearer <token>` header.
 | Frontend | React 18, React Router v6, Axios |
 | Styling | Custom CSS (CSS variables, no framework) |
 | Backend | Node.js, Express 4 |
-| Database | MongoDB + Mongoose |
+| Database | Supabase (PostgreSQL) |
 | Auth | JWT (jsonwebtoken) + bcryptjs |
 | Validation | express-validator |
-| Dev tools | nodemon, concurrently |
+| Hosting | Vercel (frontend) + Render (backend) |
 
 ---
 
 ## 🌐 Deploying to Production
 
-### Backend (Railway / Render / Fly.io)
+### Backend (Render)
 1. Push to GitHub
-2. Connect repo to Railway/Render
-3. Set environment variables (MONGODB_URI, JWT_SECRET, NODE_ENV=production)
-4. Set start command: `node server.js`
+2. Connect repo to [Render](https://render.com)
+3. Set **Root Directory** to `backend`
+4. Set **Build Command** to `npm install`
+5. Set **Start Command** to `node server.js`
+6. Add environment variables:
+   - `SUPABASE_URL`
+   - `SUPABASE_SERVICE_KEY`
+   - `JWT_SECRET`
+   - `JWT_EXPIRES_IN=7d`
+   - `NODE_ENV=production`
+   - `CLIENT_URL=https://your-vercel-url.vercel.app`
 
-### Frontend (Vercel / Netlify)
-1. Set `REACT_APP_API_URL=https://your-backend-url.com/api`
-2. Build: `npm run build`
-3. Deploy `frontend/build/` folder
-
-### MongoDB Atlas (Free tier)
-1. Create free cluster at mongodb.com/atlas
-2. Copy connection string to `MONGODB_URI`
+### Frontend (Vercel)
+1. Connect repo to [Vercel](https://vercel.com)
+2. Set **Root Directory** to `frontend`
+3. Add environment variable:
+   - `REACT_APP_API_URL=https://your-render-url.onrender.com/api`
+4. Deploy
 
 ---
 
