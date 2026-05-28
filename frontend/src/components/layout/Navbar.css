@@ -1,0 +1,36 @@
+.navbar {
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  position: sticky; top: 0; z-index: 100;
+  height: 60px;
+}
+.navbar-inner {
+  max-width: 1100px; margin: 0 auto; padding: 0 1.5rem;
+  height: 100%; display: flex; align-items: center; justify-content: space-between;
+}
+.navbar-brand {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px; font-weight: 700; color: var(--accent);
+  letter-spacing: -0.5px; text-decoration: none;
+}
+.navbar-actions { display: flex; align-items: center; gap: 10px; }
+
+.user-menu-wrap { position: relative; }
+.user-menu {
+  position: absolute; top: calc(100% + 10px); right: 0;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius-lg); box-shadow: var(--shadow-md);
+  min-width: 200px; overflow: hidden; z-index: 200;
+}
+.user-menu-header { padding: 12px 16px; border-bottom: 1px solid var(--line); }
+.user-menu-name { display: block; font-size: 14px; font-weight: 600; color: var(--ink); }
+.user-menu-email { display: block; font-size: 12px; color: var(--ink3); margin-top: 2px; }
+.user-menu-item {
+  display: block; padding: 10px 16px; font-size: 14px;
+  color: var(--ink2); text-decoration: none; transition: background 0.12s;
+  border: none; background: none; width: 100%; text-align: left; cursor: pointer;
+}
+.user-menu-item:hover { background: var(--cream); color: var(--ink); }
+.user-menu-logout { color: var(--danger); }
+.user-menu-logout:hover { background: #fef2f2; }
+.user-menu-divider { height: 1px; background: var(--line); margin: 4px 0; }

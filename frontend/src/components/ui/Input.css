@@ -1,0 +1,13 @@
+.form-group { display: flex; flex-direction: column; gap: 4px; margin-bottom: 1rem; }
+.form-label { font-size: 13px; font-weight: 500; color: var(--ink2); }
+.form-input {
+  width: 100%; padding: 10px 12px;
+  border: 1px solid var(--line); border-radius: var(--radius);
+  font-size: 14px; background: var(--cream); color: var(--ink);
+  outline: none; transition: border 0.15s, background 0.15s;
+}
+.form-input:focus { border-color: var(--accent); background: var(--paper); }
+.form-input-error { border-color: var(--danger); }
+.form-textarea { resize: vertical; min-height: 120px; line-height: 1.6; }
+.form-select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%238888aa' d='M6 8L1 3h10z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; padding-right: 32px; }
+.form-error { font-size: 12px; color: var(--danger); margin-top: 2px; }

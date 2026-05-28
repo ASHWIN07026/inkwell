@@ -1,0 +1,13 @@
+.profile-page { padding: 2rem 1.5rem 4rem; max-width: 900px; }
+.profile-hero { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 2rem; display: flex; align-items: flex-start; gap: 1.5rem; margin-bottom: 2.5rem; flex-wrap: wrap; position: relative; }
+.profile-info { flex: 1; }
+.profile-name { font-family: 'Playfair Display', serif; font-size: 28px; margin-bottom: 6px; }
+.profile-bio { font-size: 15px; color: var(--ink2); margin-bottom: 6px; }
+.profile-joined { font-size: 13px; color: var(--ink3); margin-bottom: 1rem; }
+.profile-stats { display: flex; gap: 2rem; }
+.stat strong { display: block; font-size: 22px; color: var(--ink); }
+.stat span { font-size: 12px; color: var(--ink3); }
+.profile-edit-btn { position: absolute; top: 1.5rem; right: 1.5rem; }
+.profile-posts-title { font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 1.5rem; }
+.posts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 1.5rem; }
+.home-empty { text-align: center; padding: 3rem; color: var(--ink3); }

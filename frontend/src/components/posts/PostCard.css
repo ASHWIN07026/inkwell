@@ -1,0 +1,14 @@
+.post-card {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius-lg); transition: all 0.2s;
+}
+.post-card:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
+.post-card-link { display: block; text-decoration: none; color: inherit; }
+.post-card-inner { padding: 1.5rem; display: flex; flex-direction: column; gap: 10px; height: 100%; }
+.post-card-title { font-family: 'Playfair Display', serif; font-size: 18px; line-height: 1.35; color: var(--ink); }
+.post-card-excerpt { font-size: 14px; color: var(--ink2); line-height: 1.65; flex: 1; }
+.post-card-meta { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--ink3); flex-wrap: wrap; }
+.post-card-author { font-weight: 500; color: var(--ink2); }
+.post-card-dot { color: var(--line); }
+.post-card-date {}
+.post-card-stats { margin-left: auto; display: flex; gap: 10px; }

@@ -1,0 +1,19 @@
+.write-page { padding: 2rem 1.5rem 4rem; }
+.write-inner { max-width: 800px; margin: 0 auto; }
+.write-header { margin-bottom: 1.5rem; }
+.back-link { font-size: 13px; color: var(--ink3); background: none; border: none; cursor: pointer; margin-bottom: 8px; display: block; padding: 0; }
+.back-link:hover { color: var(--accent); }
+.write-title { font-family: 'Playfair Display', serif; font-size: 28px; }
+
+.editor-wrap { margin-bottom: 1rem; }
+.toolbar { display: flex; align-items: center; gap: 4px; padding: 6px 10px; background: var(--cream); border: 1px solid var(--line); border-bottom: none; border-radius: var(--radius) var(--radius) 0 0; flex-wrap: wrap; }
+.tb-btn { padding: 4px 10px; border: 1px solid var(--line); background: var(--paper); border-radius: var(--radius); font-size: 12px; cursor: pointer; color: var(--ink2); font-family: inherit; }
+.tb-btn:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+.tb-divider { width: 1px; height: 18px; background: var(--line); margin: 0 4px; }
+.tb-hint { font-size: 12px; color: var(--ink3); margin-left: auto; }
+.editor-textarea { width: 100%; padding: 14px; border: 1px solid var(--line); border-radius: 0 0 var(--radius) var(--radius); font-size: 15px; font-family: inherit; background: var(--paper); color: var(--ink); resize: vertical; outline: none; line-height: 1.75; transition: border 0.15s; }
+.editor-textarea:focus { border-color: var(--accent); }
+.editor-error { border-color: var(--danger); }
+.form-error { font-size: 12px; color: var(--danger); margin-top: 4px; }
+
+.write-actions { display: flex; gap: 10px; margin-top: 1.5rem; }

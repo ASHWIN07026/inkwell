@@ -1,0 +1,31 @@
+.post-detail-page { padding: 2rem 1.5rem; }
+.post-detail-inner { max-width: 740px; margin: 0 auto; }
+.back-link { font-size: 13px; color: var(--ink3); text-decoration: none; display: inline-block; margin-bottom: 1.5rem; }
+.back-link:hover { color: var(--accent); }
+
+.post-article { padding-bottom: 2rem; }
+.post-title { font-family: 'Playfair Display', serif; font-size: clamp(26px, 4vw, 40px); line-height: 1.2; margin: 12px 0 1.25rem; }
+.post-byline { display: flex; align-items: flex-start; gap: 12px; padding: 1rem 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-bottom: 2rem; flex-wrap: wrap; }
+.post-author-name { font-weight: 600; font-size: 15px; color: var(--ink); text-decoration: none; display: block; }
+.post-author-name:hover { color: var(--accent); }
+.post-author-bio { font-size: 13px; color: var(--ink3); margin-top: 2px; }
+.post-meta-right { margin-left: auto; font-size: 13px; color: var(--ink3); text-align: right; }
+
+.post-body { font-size: 17px; line-height: 1.85; color: var(--ink2); }
+.post-body p { margin-bottom: 1.25rem; }
+.post-body h2 { font-family: 'Playfair Display', serif; font-size: 24px; margin: 2rem 0 1rem; color: var(--ink); }
+.post-body h3 { font-size: 19px; margin: 1.5rem 0 0.75rem; color: var(--ink); }
+.post-body blockquote { border-left: 3px solid var(--accent); padding: 0.5rem 1rem 0.5rem 1.25rem; margin: 1.5rem 0; font-style: italic; color: var(--ink); background: var(--accent-light); border-radius: 0 var(--radius) var(--radius) 0; }
+.post-body ul { padding-left: 1.5rem; margin: 1rem 0; }
+.post-body li { margin-bottom: 0.4rem; }
+.post-body strong { font-weight: 600; color: var(--ink); }
+
+.post-actions-bar { display: flex; align-items: center; gap: 10px; margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--line); flex-wrap: wrap; }
+.like-btn { display: flex; align-items: center; gap: 6px; padding: 8px 18px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--paper); font-size: 14px; font-weight: 500; color: var(--ink2); cursor: pointer; transition: all 0.15s; }
+.like-btn:hover, .like-btn.liked { background: #fef2f2; border-color: #fecaca; color: var(--danger); }
+.owner-actions { display: flex; gap: 8px; margin-left: auto; align-items: center; flex-wrap: wrap; }
+.delete-confirm { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.delete-confirm span { font-size: 13px; color: var(--danger); }
+.post-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1.5rem; }
+.post-tag { font-size: 13px; color: var(--ink3); }
+.post-tag:hover { color: var(--accent); }
